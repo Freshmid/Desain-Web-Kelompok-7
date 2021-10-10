@@ -1,6 +1,7 @@
 body {
     background: -webkit-linear-gradient(bottom, #ffe8a8, #ffe17f);
     background-repeat: no-repeat;
+    display: flex;
 }
 #card {
     background: #fbfbfb;
