@@ -4,6 +4,10 @@ import reactDom from "react-dom";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import _ from "lodash";
+import Recipes from "./recipes"
+import {BrowserRouter,Routes,Route,Link} from "react-router-dom"
+
+
 
 function Index(){
     useEffect(()=>{
@@ -169,7 +173,7 @@ function Index(){
             <li><a className="active" href="#home">home</a></li>
             <li><a href="#about">about</a></li>
             <li><a href="#course">course</a></li>
-            <li><a href="recipes.html">recipes</a></li>
+            <li><Link to="/recipes">recipes</Link></li>
             <li><a href="#contact">contact</a></li>
         </ul>
     </nav>
@@ -369,7 +373,7 @@ login form
 
 <p></p>
 
-<a href="recipes.html"><button className="btn">Pastry</button></a>
+<Link to="/recipes"><button className="btn">Pastry</button></Link>
 <a href="recipes.html"><button className="btn">Western</button></a>
 <a href="recipes.html"><button className="btn">Asian</button></a>
 <a href="recipes.html"><button className="btn">Eastern</button></a>
@@ -479,6 +483,11 @@ login form
     )
 } 
 ReactDOM.render(
-    <Index/>,
+    <BrowserRouter>
+    <Routes>
+    <Route exact path="/" element={<Index/> }/> 
+    <Route path="/recipes" element={<Recipes/> }/> 
+    </Routes>
+    </BrowserRouter>,
     document.querySelector("#web")
 )
